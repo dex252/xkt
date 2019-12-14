@@ -7,7 +7,7 @@ using Server.Models;
 
 namespace Server.Response
 {
-    public class GetResult : GetResponse<List<LocoData>>
+    public class GetManifest : GetResponse<List<LocoData>>
     {
         public override Nancy.Response PostResponse(Request request, Database db)
         {
@@ -28,21 +28,6 @@ namespace Server.Response
         {
             try
             {
-                //var sql = "SELECT " +
-                //            "full_sql_locodataseconds.loco_id, " +
-                //            "full_sql_loco.type_loco_id, " +
-                //            "full_sql_locodataseconds.timestamp, " +
-                //            "full_sql_locodataseconds.rpm_diesel, " +
-                //            "full_sql_locodataseconds.power_generator, " +
-                //            "full_sql_locodataseconds.poz_kont_sec " +
-                //                "FROM " +
-                //                "full_sql_locodataseconds, " +
-                //                "full_sql_loco " +
-                //                    "WHERE " +
-                //                    "full_sql_locodataseconds.poz_kont_sec>9 " +
-                //                        "AND " +
-                //                        "full_sql_locodataseconds.loco_id=full_sql_loco.id;";
-
                 var sql = "SELECT " +
                           "full_sql_locodataseconds.loco_id, " +
                           "full_sql_loco.type_loco_id, " +
@@ -60,7 +45,7 @@ namespace Server.Response
                           "AND full_sql_locodataseconds.rpm_diesel>=500 " +
                           "AND full_sql_locodataseconds.power_generator>=400;";
 
-                List<LocoData> response = db.Db.Query<LocoData>(sql).AsList();
+                List<LocoData> response = db.Db.Query<LocoData>(sql, null, null, true, 300).AsList();
                 
                 Console.WriteLine("Get manifest");
 
@@ -95,3 +80,18 @@ namespace Server.Response
 //          "full_sql_locodataseconds.loco_id=full_sql_loco.id " +
 //          "AND full_sql_locodataseconds.rpm_diesel>=500 " +
 //          "AND full_sql_locodataseconds.power_generator>=400;";
+
+//var sql = "SELECT " +
+//            "full_sql_locodataseconds.loco_id, " +
+//            "full_sql_loco.type_loco_id, " +
+//            "full_sql_locodataseconds.timestamp, " +
+//            "full_sql_locodataseconds.rpm_diesel, " +
+//            "full_sql_locodataseconds.power_generator, " +
+//            "full_sql_locodataseconds.poz_kont_sec " +
+//                "FROM " +
+//                "full_sql_locodataseconds, " +
+//                "full_sql_loco " +
+//                    "WHERE " +
+//                    "full_sql_locodataseconds.poz_kont_sec>9 " +
+//                        "AND " +
+//                        "full_sql_locodataseconds.loco_id=full_sql_loco.id;";

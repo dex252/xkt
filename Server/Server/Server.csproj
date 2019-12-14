@@ -107,11 +107,15 @@
     <Compile Include="Extensions.cs" />
     <Compile Include="Helper\Resp.cs" />
     <Compile Include="Models\LocoData.cs" />
+    <Compile Include="Models\LocomotiveAndSeries.cs" />
+    <Compile Include="Models\Shablon.cs" />
     <Compile Include="Module\Abstract\MainModule.cs" />
+    <Compile Include="Module\GetLocomotiveAndSeriesModule.cs" />
     <Compile Include="Module\GetResultModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Response\Abstract\GetResponse.cs" />
-    <Compile Include="Response\GetResult.cs" />
+    <Compile Include="Response\GetLocomotiveAndSeries.cs" />
+    <Compile Include="Response\GetManifest.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>

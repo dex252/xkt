@@ -6,7 +6,7 @@ namespace Server.Module
 {
     public class GetResultModule : MainModule<List<LocoData>>
     {
-        public GetResultModule() : base("GetResult", new GetResult())
+        public GetResultModule() : base("GetResult", new GetManifest())
         {
         }
     }
